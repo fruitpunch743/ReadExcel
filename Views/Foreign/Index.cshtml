@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "_Layout";
+    string val = @ViewData["result"].ToString();
+}
+
+<div class="container">
+    <h1>Excel File Upload</h1>
+    <form asp-controller="Foreign" asp-action="Index" method="post" enctype="multipart/form-data" required>
+        <input type="file" name="file" id="file" accept=".xlsx" required>
+        <button type="submit">Upload</button>
+    </form>
+    @if(val == "false"){
+    <div id="errorDisplay">Excel sheet missing attributes, check for missing rows and columns</div>
+    }
+    @if(val == "true"){
+        <div id="success">Added Successfully</div>
+    }
+</div>
+    
